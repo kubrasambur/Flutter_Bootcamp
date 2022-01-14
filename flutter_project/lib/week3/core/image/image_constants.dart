@@ -8,7 +8,7 @@ class ImageConstants {
 
   ImageConstants._init();
 
-  final bracoli = 'broccoli'.toPng;
+  final broccoli = 'broccoli'.toPng;
   final kale = 'kale'.toPng;
   final pepper = 'pepper'.toPng;
   final strawBerry = 'strawberry'.toPng;
@@ -16,5 +16,5 @@ class ImageConstants {
 
 extension _ImageExtension on String {
   // Add to png path on image string
-  String get toPng => 'assets/image/$this.png';
+  String get toPng => 'assets/images/$this.png';
 }

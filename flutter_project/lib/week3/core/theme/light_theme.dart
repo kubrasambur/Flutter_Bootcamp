@@ -20,7 +20,6 @@ class LightTheme extends ITheme {
           backgroundColor: Colors.white,
           textTheme: _lightTheme.textTheme.apply(bodyColor: colors.lynch),
         ),
-        accentColor: Colors.green,
         textTheme: _lightTheme.textTheme.apply(bodyColor: colors.lynch),
         colorScheme: _lightTheme.colorScheme.copyWith(
           primary: Colors.black,

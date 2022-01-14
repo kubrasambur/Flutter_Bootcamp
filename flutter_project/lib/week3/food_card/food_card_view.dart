@@ -11,38 +11,53 @@ class FoodCardView extends FoodCardViewModel {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Column(
-        children: [
-          Expanded(
-            flex: 4,
-            child: ListView.builder(
-              itemCount: foodItemList.length,
-              itemBuilder: (context, index) =>
-                  FoodCardWidget(model: foodItemList[index]),
-            ),
-          ),
-          Spacer(),
-          Expanded(
-              flex: 2,
-              child: Column(
-                children: [
-                  Spacer(),
-                  Expanded(child: buildRowSubTotal()),
-                  Expanded(child: buildRowDelivery()),
-                  Expanded(flex: 2, child: buildRowTotal()),
-                  Spacer()
-                ],
-              )),
-          Expanded(child: buildCheckOutButton()),
-        ],
-      ),
+      body: buildPadding(),
+    );
+  }
+
+  Padding buildPadding() {
+    return Padding(
+      padding: insetsAll,
+      child: buildColumnBody(),
+    );
+  }
+
+  Column buildColumnBody() {
+    return Column(
+      children: [
+        Expanded(
+          flex: 4,
+          child: buildListViewFoodList(),
+        ),
+        Spacer(),
+        Expanded(
+            flex: 2,
+            child: Column(
+              children: [
+                Spacer(),
+                Expanded(child: buildRowSubTotal()),
+                Expanded(child: buildRowDelivery()),
+                Expanded(flex: 2, child: buildRowTotal()),
+                Spacer()
+              ],
+            )),
+        Expanded(child: buildCheckOutButton()),
+      ],
+    );
+  }
+
+  ListView buildListViewFoodList() {
+    return ListView.builder(
+      itemCount: foodItemList.length,
+      itemBuilder: (context, index) =>
+          FoodCardWidget(model: foodItemList[index]),
     );
   }
 
   Text buildTextSubtitle(String title) {
     return Text(
       title,
-      style: textTheme.bodyText1!.copyWith(color: colorScheme.onPrimary),
+      style: textTheme.bodyText1!.copyWith(color: colorSchema.onPrimary),
     );
   }
 
@@ -62,31 +77,31 @@ class FoodCardView extends FoodCardViewModel {
 
   Widget buildWrapIconText() {
     return IconTextWidget(
-        title: applicationString.checkOut,
+        title: applicationStrings.checkOut,
         icon: Icons.arrow_right_alt_outlined);
   }
 
   Row buildRowSubTotal() {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-      buildTextSubtitle(applicationString.subTotal),
+      buildTextSubtitle(applicationStrings.subTotal),
       Text('£9.30'),
     ]);
   }
 
   Row buildRowDelivery() {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-      buildTextSubtitle(applicationString.delivery),
-      Text('data'),
+      buildTextSubtitle(applicationStrings.delivery),
+      Text('£0.70'),
     ]);
   }
 
   Row buildRowTotal() {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
       Text(
-        applicationString.total,
+        applicationStrings.total,
         style: textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
       ),
-      Text('£9.30', style: textTheme.headline5),
+      Text('£10.00', style: textTheme.headline5),
     ]);
   }
 

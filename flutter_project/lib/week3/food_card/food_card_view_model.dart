@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_project/week3/core/base/base_statefull.dart';
+import '../core/base/base_statefull.dart';
 import 'food_card.dart';
 import 'model/food_model.dart';
 
@@ -10,10 +9,10 @@ abstract class FoodCardViewModel extends BaseStatefull<FoodCard> {
   void initState() {
     super.initState();
     foodItemList = [
-      FoodModel('Broccoli', imageConstants.bracoli, '10'),
+      FoodModel('Broccoli', imageConstants.broccoli, '10'),
       FoodModel('Kale', imageConstants.kale, '10'),
       FoodModel('Red Peppers', imageConstants.pepper, '10'),
-      FoodModel('Strow Berries', imageConstants.strawBerry, '10'),
+      FoodModel('Straw Berries', imageConstants.strawBerry, '10'),
     ];
   }
 }
