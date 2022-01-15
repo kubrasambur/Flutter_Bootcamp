@@ -72,7 +72,6 @@ class FoodCardView extends FoodCardViewModel {
         child: buildWrapIconText(),
       ),
     );
-    ;
   }
 
   Widget buildWrapIconText() {
