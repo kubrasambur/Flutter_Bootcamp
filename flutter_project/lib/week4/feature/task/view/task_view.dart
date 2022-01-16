@@ -11,18 +11,35 @@ class TaskView extends StatelessWidget {
       _viewModel.setContext(context);
     }
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _viewModel.onIncrementCount();
-        },
-        child: Icon(Icons.add),
-      ),
+      /*
       appBar: AppBar(
         //gelecek olan text bilgisini runtime da alıp yazdırmak için observer ile sardık
-        title: Observer(builder: (_) {
-          return Text("${_viewModel.count}");
-        }),
+        title: Observer(
+          builder: (_) {
+            return Text("${_viewModel.count}");
+          },
+        ),
       ),
+      */
+      appBar: AppBar(
+        title: Observer(
+          builder: (_) {
+            return Visibility(
+              child: Center(child: CircularProgressIndicator()),
+              visible: _viewModel.pageLife == LifeState.LOADING,
+            );
+          },
+        ),
+      ),
+      body: Observer(builder: (_) {
+        return ListView.builder(
+            itemCount: _viewModel.items.length,
+            itemBuilder: (context, index) => Card(
+                  child: Text(
+                    _viewModel.items[index].description ?? "",
+                  ),
+                ));
+      }),
     );
   }
 }
