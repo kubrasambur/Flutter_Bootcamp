@@ -6,5 +6,5 @@ abstract class IPhotosService {
 
   IPhotosService(this.dio);
 
-  List<PhotoModel> fetchAllPPhotos();
+  Future<List<PhotoModel>> fetchAllPPhotos();
 }

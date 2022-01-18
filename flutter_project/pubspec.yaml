@@ -49,6 +49,7 @@ dependencies:
   pretty_dio_logger: ^1.1.1
   provider: ^6.0.2
   easy_localization: ^3.0.0
+  logger: ^1.1.0
 
 dev_dependencies:
   flutter_test:
