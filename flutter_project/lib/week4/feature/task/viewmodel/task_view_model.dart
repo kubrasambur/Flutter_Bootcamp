@@ -17,7 +17,7 @@ abstract class _TaskViewModelBase with Store {
   @observable
   List<TaskModel> items = [];
 
-  LifeState pageLife = LifeState.IDLE;
+  LifeState pageLife = LifeState.IDDLE;
 
   _TaskViewModelBase({this.context}) {
     taskService = TaskService(NetworkManager.instance.dio);
@@ -37,4 +37,4 @@ abstract class _TaskViewModelBase with Store {
   }
 }
 
-enum LifeState { IDLE, LOADING, DONE }
+enum LifeState { IDDLE, LOADING, DONE }

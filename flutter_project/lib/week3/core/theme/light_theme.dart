@@ -20,7 +20,7 @@ class LightTheme extends ITheme {
           backgroundColor: Colors.white,
           textTheme: _lightTheme.textTheme.apply(bodyColor: colors.lynch),
         ),
-        textTheme: _lightTheme.textTheme.apply(bodyColor: colors.lynch),
+        textTheme: _lightTheme.textTheme.apply(bodyColor: Colors.black),
         colorScheme: _lightTheme.colorScheme.copyWith(
           primary: Colors.black,
           secondary: Colors.green,
@@ -28,6 +28,6 @@ class LightTheme extends ITheme {
           onSecondary: colors.catSkillWhite,
         ),
         tabBarTheme: TabBarTheme(
-            labelColor: Colors.black, unselectedLabelColor: colors.bitterSweet),
+            labelColor: colors.bitterSweet, unselectedLabelColor: Colors.black),
       );
 }

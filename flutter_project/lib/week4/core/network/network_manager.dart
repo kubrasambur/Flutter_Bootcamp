@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_project/week4/core/exception/env_not_found.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class NetworkManager {
   static NetworkManager? _instance;
@@ -12,12 +14,19 @@ class NetworkManager {
   }
 
   final String _baseUrl = 'BASE_URL';
-  late Dio dio;
+  late final Dio dio;
 
   NetworkManager._init() {
     final url = dotenv.env[_baseUrl];
+
     if (url != null) {
       dio = Dio(BaseOptions(baseUrl: url));
+      if (kDebugMode) dio.interceptors.add(PrettyDioLogger());
+
+      dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
+        options.path += ".json";
+        handler.next(options);
+      }));
     } else {
       throw EnvNotFound(_baseUrl);
     }
