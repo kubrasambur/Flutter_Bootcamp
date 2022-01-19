@@ -32,7 +32,7 @@ abstract class _PhotosViewModelBase with Store {
     final response = await photoService.fetchAllPPhotos();
     changeLoading();
 
-    Logger().wtf(response);
+    //Logger().wtf(response);
     photos = response;
   }
 

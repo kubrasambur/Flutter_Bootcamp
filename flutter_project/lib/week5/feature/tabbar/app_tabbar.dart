@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/week5/feature/basket/basket_view.dart';
 import 'package:flutter_project/week5/feature/photos/view/photos_view.dart';
 import 'model/tab_model.dart';
 
@@ -7,9 +8,7 @@ class AppTabBar extends StatelessWidget {
     TabModel(icon: Icons.ac_unit, page: PhotosView(), title: "Photos"),
     TabModel(
         icon: Icons.accessibility_outlined,
-        page: Container(
-          color: Colors.red,
-        ),
+        page: BasketView(),
         title: "Basket"),
   ];
 
